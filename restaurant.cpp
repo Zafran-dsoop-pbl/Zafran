@@ -1,6 +1,6 @@
 // =============================================================
 //  PROJECT : Restaurant Management System (Zafran Kitchen)
-//  COURSE  : Data Structures & Object-Oriented Programming (CS-291)
+//  COURSE  : Data Structures & Object-Oriented Programming (MTE-227)
 //  GROUP   : Group 3 - 25MTE, Dept. of Mechatronics Eng., MUET Jamshoro
 //  COMPILE : g++ -std=c++17 restaurant.cpp -lsqlite3 -o restaurant
 // =============================================================
