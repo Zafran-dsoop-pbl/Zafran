@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zafran — Pakistani Kitchen | Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Zafran Top Navigation Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand-link">
+                <span class="brand-wordmark">Zafran</span>
+                <span class="brand-subtitle">PAKISTANI KITCHEN</span>
+            </a>
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html" aria-current="page">Menu</a></li>
+                    <li><a href="order.html">Order<span id="navCartBadge" class="nav-badge" hidden>0</span></a></li>
+                    <li><a href="visit.html">Visit</a></li>
+                    <li><a href="visit.html" class="nav-cta-dark">Find us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-intro">
+            <span class="eyebrow">THE MENU</span>
+            <h1>Ten dishes. That is the whole kitchen.</h1>
+            <p>
+                Prices are in Pakistani rupees. Click <strong>+</strong> on any dish card to add it to your live order card on the right.
+            </p>
+        </div>
+
+        <!-- Zafran Category & Bubble Sort Pills -->
+        <div class="category-tabs" id="categoryTabs">
+            <button type="button" class="tab-btn active" data-filter="all">All dishes (10)</button>
+            <button type="button" class="tab-btn" data-filter="To begin">To begin</button>
+            <button type="button" class="tab-btn" data-filter="From the kitchen">From the kitchen</button>
+            <button type="button" class="tab-btn" data-filter="Breads & sides">Breads &amp; sides</button>
+            <button type="button" class="tab-btn" data-filter="Sweet & cold">Sweet &amp; cold</button>
+            <button type="button" class="tab-btn" data-filter="price_sort">Sort by price (Bubble Sort)</button>
+        </div>
+
+        <!-- Two-Column Menu Cards + Sticky Right Cart -->
+        <div class="menu-page-layout">
+            <!-- Left: 2-Column Dish Cards Grid -->
+            <div class="menu-cards-area">
+                <h2 id="menuSectionTitle" class="menu-section-heading">All dishes</h2>
+                <div id="menuCardsGrid" class="menu-grid"></div>
+            </div>
+
+            <!-- Right: Sticky Live Cart Sidebar ("Your items") -->
+            <aside class="cart-sidebar" aria-label="Your items">
+                <fieldset class="segmented-toggle">
+                    <legend style="position:absolute; clip-path:inset(50%); width:1px; height:1px; overflow:hidden;">Order Type</legend>
+                    <label for="sideDineIn">
+                        <input type="radio" id="sideDineIn" name="sideService" value="Dine in" checked> Dine in
+                    </label>
+                    <label for="sidePickup">
+                        <input type="radio" id="sidePickup" name="sideService" value="Pickup"> Pickup
+                    </label>
+                </fieldset>
+
+                <h2 style="font-size:1.35rem; margin-bottom:10px;">Your items</h2>
+
+                <div id="sidebarCartItems">
+                    <p style="color:#6e655d; font-size:0.9rem; padding:18px 0;">
+                        Your order is empty. Click <strong>+</strong> on any dish card to add it here.
+                    </p>
+                </div>
+
+                <div id="sidebarCartTotals" class="cart-totals" hidden>
+                    <div class="tot-line">
+                        <span>Subtotal</span>
+                        <span id="sideSubtotal" class="mono">Rs 0</span>
+                    </div>
+                    <div class="tot-line">
+                        <span>Tax (5%)</span>
+                        <span id="sideTax" class="mono">Rs 0</span>
+                    </div>
+                    <div class="tot-line grand">
+                        <span>TOTAL</span>
+                        <span id="sideTotal" class="grand-val">Rs 0</span>
+                    </div>
+                    <a href="order.html" class="btn-clay" style="width:100%; margin-top:16px;">
+                        Review &amp; place order &rarr;
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Shared Zafran Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div style="margin-bottom:8px;">
+                    <span class="brand-wordmark" style="font-size:1.35rem;">Zafran</span>
+                    <span class="brand-subtitle" style="margin-left:8px;">PAKISTANI KITCHEN</span>
+                </div>
+                <p>Classroom 2 (ICPC Classroom), Department of Mechatronics Engineering, Mehran University of Engineering &amp; Technology (MUET), Jamshoro</p>
+            </div>
+            <div class="footer-col">
+                <h4>OPENING HOURS</h4>
+                <p>Monday &mdash; Thursday: 12:00 pm &mdash; 11:30 pm</p>
+                <p>Friday &mdash; Sunday: 12:00 pm &mdash; 1:00 am</p>
+            </div>
+            <div class="footer-col">
+                <h4>TALK TO US</h4>
+                <p>+92 XXXXXXXXX</p>
+                <p>hello@zafran.pk</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

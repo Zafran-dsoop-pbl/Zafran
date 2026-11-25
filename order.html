@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zafran — Pakistani Kitchen | Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Zafran Top Navigation Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand-link">
+                <span class="brand-wordmark">Zafran</span>
+                <span class="brand-subtitle">PAKISTANI KITCHEN</span>
+            </a>
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="order.html" aria-current="page">Order<span id="navCartBadge" class="nav-badge" hidden>0</span></a></li>
+                    <li><a href="visit.html">Visit</a></li>
+                    <li><a href="visit.html" class="nav-cta-dark">Find us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Empty Order State -->
+        <section id="emptyCartSection" class="white-card" hidden style="text-align:center; padding:54px 28px; max-width:620px; margin:0 auto;">
+            <h1 style="font-size:2rem; margin-bottom:10px;">Your order is empty</h1>
+            <p style="color:#6e655d; margin-bottom:24px;">
+                Pick a few dishes from the menu and they will appear here with the bill worked out for you.
+            </p>
+            <a href="menu.html" class="btn-clay">Open the menu &rarr;</a>
+        </section>
+
+        <!-- Active Checkout Section -->
+        <section id="checkoutMainSection">
+            <div class="page-intro">
+                <span class="eyebrow">YOUR ORDER</span>
+                <h1>Check the dishes, then place the order.</h1>
+            </div>
+
+            <div class="checkout-grid">
+                <!-- Left Card: Order Summary -->
+                <div class="white-card">
+                    <div tabindex="0" role="region" aria-labelledby="chk-caption" class="table-wrapper">
+                        <table style="--label-2:'Quantity'; --label-3:'Amount';">
+                            <caption id="chk-caption">DISHES IN YOUR ORDER</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">DISH</th>
+                                    <th scope="col">QUANTITY</th>
+                                    <th scope="col" style="text-align:right;">AMOUNT</th>
+                                </tr>
+                            </thead>
+                            <tbody id="checkoutTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="cart-totals">
+                        <div class="tot-line"><span>Subtotal</span><span id="chkSubtotal" class="mono">Rs 0</span></div>
+                        <div class="tot-line"><span>Tax (5%)</span><span id="chkTax" class="mono">Rs 0</span></div>
+                        <div class="tot-line grand"><span>TOTAL</span><span id="chkTotal" class="grand-val">Rs 0</span></div>
+                    </div>
+
+                    <p style="margin-top:18px;">
+                        <a href="menu.html" class="text-action-link">&larr; Add another dish</a>
+                    </p>
+                </div>
+
+                <!-- Right Card: Zafran Guest Details Form -->
+                <div class="sand-form-card">
+                    <h2 id="cust-form-title" style="font-size:1.5rem; margin-bottom:4px;">Who is this order for?</h2>
+                    <p style="color:#6e655d; font-size:0.9rem; margin-bottom:20px;">
+                        We keep the order under your name at the counter.
+                    </p>
+
+                    <form id="checkoutForm" action="/api/order" method="POST" aria-labelledby="cust-form-title" novalidate>
+                        <div class="field-group">
+                            <label for="custName">NAME *</label>
+                            <input type="text" id="custName" name="custName" autocomplete="name"
+                                   placeholder="Your name" required minlength="2" aria-describedby="errName">
+                            <span id="errName" class="field-error" aria-live="polite"></span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="custPhone">PHONE *</label>
+                            <input type="text" id="custPhone" name="custPhone" inputmode="numeric"
+                                   autocomplete="tel" placeholder="+92 XXXXXXXXX"
+                                   required pattern="[0-9\-\+\sX]{7,16}" aria-describedby="errPhone">
+                            <span id="errPhone" class="field-error" aria-live="polite"></span>
+                        </div>
+
+                        <fieldset style="border:none; margin-bottom:16px;">
+                            <legend class="form-section-label" style="margin-bottom:8px;">ORDER TYPE</legend>
+                            <div class="segmented-toggle" style="margin-bottom:0;">
+                                <label for="chkDineIn">
+                                    <input type="radio" id="chkDineIn" name="chkService" value="Dine in" checked> Dine in
+                                </label>
+                                <label for="chkPickup">
+                                    <input type="radio" id="chkPickup" name="chkService" value="Pickup"> Pickup
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="field-group" id="tableInputBox">
+                            <label for="custTable">TABLE NUMBER (optional)</label>
+                            <input type="text" id="custTable" name="custTable" inputmode="numeric" placeholder="e.g. 7">
+                        </div>
+
+                        <div class="field-group">
+                            <label for="custNotes">NOTES (optional)</label>
+                            <textarea id="custNotes" name="custNotes" rows="3" placeholder="Less chilli, no coriander..."></textarea>
+                        </div>
+
+                        <button type="submit" id="submitOrderBtn" class="btn-clay" style="width:100%; margin-top:4px;">
+                            Place order &middot; <span id="btnOrderTotal">Rs 0</span>
+                        </button>
+
+                        <p style="text-align:center; color:#6e655d; font-size:0.82rem; margin-top:14px;">
+                            You will get a receipt to keep. Pay at the table or on collection. Questions? Call +92 XXXXXXXXX
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zafran Generated Receipt View -->
+        <section id="receiptOutputSection" hidden>
+            <div class="sage-banner" role="status">
+                <span class="sage-check" aria-hidden="true">&#10003;</span>
+                <span>Order placed. Show this receipt at the counter &mdash; it is saved in <code>restaurant.db</code> too.</span>
+            </div>
+
+            <div class="receipt-card">
+                <div style="text-align:center; border-bottom:1px dashed #dcd3c7; padding-bottom:22px; margin-bottom:22px;">
+                    <h2 style="font-size:2rem; margin-bottom:4px;">Zafran</h2>
+                    <span class="brand-subtitle" style="display:block; margin-bottom:10px;">PAKISTANI KITCHEN</span>
+                    <p style="color:#6e655d; font-size:0.88rem;">
+                        Classroom 2 (ICPC Classroom), Dept. of Mechatronics Engineering, MUET, Jamshoro<br>
+                        +92 XXXXXXXXX
+                    </p>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                    <div>
+                        <span class="info-label">RECEIPT NO.</span>
+                        <strong id="rNo" class="mono" style="font-size:0.96rem;">-</strong>
+                    </div>
+                    <div style="text-align:right;">
+                        <span class="info-label">DATE</span>
+                        <span id="rDate" class="mono" style="font-size:0.9rem;">-</span>
+                    </div>
+                </div>
+
+                <div class="receipt-guest-box">
+                    <div>
+                        <span class="info-label">GUEST</span>
+                        <strong id="rGuest" style="display:block;">-</strong>
+                        <span id="rPhone" class="mono" style="font-size:0.84rem; color:#6e655d;">-</span>
+                    </div>
+                    <div style="text-align:right;">
+                        <span class="info-label">SERVICE</span>
+                        <strong id="rService">-</strong>
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-line); padding-bottom:8px; margin-bottom:8px;">
+                    <span class="info-label">ITEM</span>
+                    <span class="info-label">AMOUNT</span>
+                </div>
+
+                <div id="rItems"></div>
+
+                <div class="cart-totals">
+                    <div class="tot-line"><span>Subtotal</span><span id="rSub" class="mono">Rs 0</span></div>
+                    <div class="tot-line"><span>Tax (5%)</span><span id="rTax" class="mono">Rs 0</span></div>
+                    <div class="tot-line grand">
+                        <span style="letter-spacing:0.1em; font-size:0.82rem;">TOTAL DUE</span>
+                        <span id="rTot" class="grand-val">Rs 0</span>
+                    </div>
+                </div>
+
+                <div id="rNotesBox" class="notes-dashed-box" hidden>
+                    <span class="info-label">NOTES FOR THE KITCHEN</span>
+                    <p id="rNotes" style="font-size:0.92rem; margin-top:4px;"></p>
+                </div>
+
+                <div class="no-print" style="display:flex; gap:12px; justify-content:center; margin-top:28px; flex-wrap:wrap;">
+                    <button type="button" id="btnPrint" class="btn-clay">Print receipt</button>
+                    <a href="visit.html" class="btn-pill-outline">View saved orders &rarr;</a>
+                    <a href="menu.html" class="btn-pill-outline">Order something else</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shared Zafran Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div style="margin-bottom:8px;">
+                    <span class="brand-wordmark" style="font-size:1.35rem;">Zafran</span>
+                    <span class="brand-subtitle" style="margin-left:8px;">PAKISTANI KITCHEN</span>
+                </div>
+                <p>Classroom 2 (ICPC Classroom), Department of Mechatronics Engineering, Mehran University of Engineering &amp; Technology (MUET), Jamshoro</p>
+            </div>
+            <div class="footer-col">
+                <h4>OPENING HOURS</h4>
+                <p>Monday &mdash; Thursday: 12:00 pm &mdash; 11:30 pm</p>
+                <p>Friday &mdash; Sunday: 12:00 pm &mdash; 1:00 am</p>
+            </div>
+            <div class="footer-col">
+                <h4>TALK TO US</h4>
+                <p>+92 XXXXXXXXX</p>
+                <p>hello@zafran.pk</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

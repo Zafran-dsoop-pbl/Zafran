@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zafran — Pakistani Kitchen | Visit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Zafran Top Navigation Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand-link">
+                <span class="brand-wordmark">Zafran</span>
+                <span class="brand-subtitle">PAKISTANI KITCHEN</span>
+            </a>
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="order.html">Order<span id="navCartBadge" class="nav-badge" hidden>0</span></a></li>
+                    <li><a href="visit.html" aria-current="page">Visit</a></li>
+                    <li><a href="visit.html" class="nav-cta-dark">Find us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="visit-grid">
+            <div>
+                <span class="eyebrow">FIND US</span>
+                <h1 style="font-size:clamp(2.1rem, 3.6vw, 2.95rem); line-height:1.1; margin-bottom:14px;">
+                    Come hungry. Walk-ins are welcome.
+                </h1>
+                <p style="color:#6e655d; margin-bottom:26px;">
+                    We hold half the room for walk-ins every evening. For groups of six or more, calling ahead is always a good idea.
+                </p>
+
+                <div style="margin-bottom:16px;">
+                    <span class="info-label">ADDRESS</span>
+                    <p style="font-weight:500;">
+                        Classroom 2 (ICPC Classroom), Department of Mechatronics Engineering, Mehran University of Engineering &amp; Technology (MUET), Jamshoro
+                    </p>
+                </div>
+
+                <div style="display:flex; gap:36px; flex-wrap:wrap; margin-bottom:10px;">
+                    <div>
+                        <span class="info-label">RESERVATIONS</span>
+                        <p style="font-weight:500;">+92 XXXXXXXXX</p>
+                    </div>
+                    <div>
+                        <span class="info-label">EMAIL</span>
+                        <p style="font-weight:500;">hello@zafran.pk</p>
+                    </div>
+                </div>
+
+                <div class="hours-card">
+                    <span class="info-label" style="margin-bottom:8px;">OPENING HOURS</span>
+                    <div class="hours-row">
+                        <span>Monday &mdash; Thursday</span>
+                        <span class="mono">12:00 pm &mdash; 11:30 pm</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Friday &mdash; Sunday</span>
+                        <span class="mono">12:00 pm &mdash; 1:00 am</span>
+                    </div>
+                    <div class="hours-row">
+                        <span style="color:#6e655d;">Kitchen closes</span>
+                        <span style="color:#6e655d;">30 minutes before</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <img class="visit-photo"
+                     src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80"
+                     alt="Tables laid out in the Zafran dining room">
+                <p style="color:#6e655d; font-size:0.82rem; margin-top:10px;">
+                    Classroom 2 (ICPC Classroom) &middot; Department of Mechatronics Engineering, MUET Jamshoro
+                </p>
+            </div>
+        </section>
+
+        <!-- Dynamic SQLite Order History: Hidden when 0 orders exist; ONLY appears once someone places an order! -->
+        <section id="savedOrdersSection" class="white-card" hidden>
+            <span class="eyebrow">BACKEND DATABASE RECORDS (SQLITE)</span>
+            <h2 style="font-size:1.85rem; margin-bottom:6px;">Saved Receipts &amp; Day Summary</h2>
+            <p style="color:#6e655d; font-size:0.94rem; margin-bottom:18px;">
+                Every order placed through the website or C++ console program is stored inside <code>restaurant.db</code>.
+            </p>
+
+            <div style="background-color:var(--brand-sand); border-radius:14px; padding:14px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:22px;">
+                <div><strong>Orders Completed:</strong> <span id="totalOrderCount" class="mono">0</span></div>
+                <div><strong>Total Revenue (incl. 5% tax):</strong> <span id="totalSalesAmount" class="mono">Rs 0</span></div>
+            </div>
+
+            <div tabindex="0" role="region" aria-labelledby="saved-tbl-cap" class="table-wrapper">
+                <table style="--label-2:'Customer'; --label-3:'Service';">
+                    <caption id="saved-tbl-cap">SAVED CUSTOMER ORDERS FROM SQLITE DATABASE</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">RECEIPT NO.</th>
+                            <th scope="col">CUSTOMER</th>
+                            <th scope="col">SERVICE</th>
+                            <th scope="col">ORDERED DISHES</th>
+                            <th scope="col">TOTAL</th>
+                            <th scope="col">DATE &amp; TIME</th>
+                        </tr>
+                    </thead>
+                    <tbody id="savedOrdersTbody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Zafran Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div style="margin-bottom:8px;">
+                    <span class="brand-wordmark" style="font-size:1.35rem;">Zafran</span>
+                    <span class="brand-subtitle" style="margin-left:8px;">PAKISTANI KITCHEN</span>
+                </div>
+                <p>Classroom 2 (ICPC Classroom), Department of Mechatronics Engineering, Mehran University of Engineering &amp; Technology (MUET), Jamshoro</p>
+            </div>
+            <div class="footer-col">
+                <h4>OPENING HOURS</h4>
+                <p>Monday &mdash; Thursday: 12:00 pm &mdash; 11:30 pm</p>
+                <p>Friday &mdash; Sunday: 12:00 pm &mdash; 1:00 am</p>
+            </div>
+            <div class="footer-col">
+                <h4>TALK TO US</h4>
+                <p>+92 XXXXXXXXX</p>
+                <p>hello@zafran.pk</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

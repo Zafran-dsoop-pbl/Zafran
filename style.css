@@ -1,0 +1,967 @@
+/* =========================================================
+   Zafran Pakistani Kitchen — Restaurant Management System
+   Group 3 (25MTE) | Exact Zafran Font, Color & Button Theme
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --brand-cream: #faf6f0;
+    --brand-sand: #efe6da;
+    --brand-sand-soft: #f5efe6;
+    --brand-ink: #1b1714;
+    --brand-clay: #b3441f;
+    --brand-clay-dark: #943617;
+    --brand-sage: #3e5a49;
+    --card-bg: #ffffff;
+    --muted-ink: #6e655d;
+    --border-line: #e3dcd2;
+
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--brand-cream);
+    color: var(--brand-ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .serif-heading {
+    font-family: var(--font-display);
+    color: var(--brand-ink);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+a {
+    color: var(--brand-clay);
+    text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.table-wrapper:focus-visible {
+    outline: 3px solid var(--brand-clay);
+    outline-offset: 2px;
+}
+
+.mono {
+    font-family: var(--font-mono);
+}
+
+.eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-clay);
+    margin-bottom: 12px;
+}
+
+/* ---------- Zafran Top Navigation Header ---------- */
+.site-header {
+    background-color: var(--brand-cream);
+    border-bottom: 1px solid var(--border-line);
+    padding: 18px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+}
+
+.header-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.brand-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    color: var(--brand-ink);
+}
+
+.brand-wordmark {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--brand-ink);
+}
+
+.brand-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+}
+
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    color: #574f48;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border: 1px solid transparent;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.site-nav a:hover {
+    background-color: var(--brand-sand);
+    color: var(--brand-ink);
+}
+
+/* Active page pill: Zafran warm sand fill + weight + subtle contrast border */
+.site-nav a[aria-current="page"] {
+    background-color: var(--brand-sand);
+    color: var(--brand-ink);
+    font-weight: 600;
+    border-color: #cfc3b2;
+}
+
+.site-nav a.nav-cta-dark {
+    background-color: var(--brand-ink);
+    color: #ffffff;
+    font-weight: 500;
+    padding: 9px 20px;
+    margin-left: 6px;
+}
+
+.site-nav a.nav-cta-dark:hover {
+    background-color: #332c27;
+    color: #ffffff;
+}
+
+.nav-badge {
+    display: inline-block;
+    background-color: var(--brand-clay);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 1px 7px;
+    border-radius: 999px;
+    margin-left: 4px;
+}
+
+.nav-badge[hidden] {
+    display: none;
+}
+
+/* ---------- Zafran Buttons ---------- */
+.btn-clay {
+    background-color: var(--brand-clay);
+    color: #ffffff;
+    border: none;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    transition: background-color 0.15s ease;
+}
+
+.btn-clay:hover {
+    background-color: var(--brand-clay-dark);
+    color: #ffffff;
+}
+
+.btn-pill-outline {
+    background-color: var(--card-bg);
+    color: var(--brand-ink);
+    border: 1px solid #dcd3c7;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    transition: background-color 0.15s ease;
+}
+
+.btn-pill-outline:hover {
+    background-color: var(--brand-sand);
+}
+
+.text-action-link {
+    color: var(--brand-clay);
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 8px 6px;
+}
+
+.text-action-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Containers ---------- */
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 28px;
+}
+
+/* ---------- Home Page Hero & Sections ---------- */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 52px;
+    align-items: center;
+    padding: 18px 0 36px;
+}
+
+.hero-headline {
+    font-size: clamp(2.4rem, 4.4vw, 3.55rem);
+    line-height: 1.07;
+    margin-bottom: 20px;
+}
+
+.hero-subcopy {
+    color: var(--muted-ink);
+    font-size: 1.02rem;
+    max-width: 470px;
+    margin-bottom: 28px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.hero-photo-wrap {
+    position: relative;
+}
+
+.hero-photo {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+}
+
+.hero-float-card {
+    position: absolute;
+    left: 18px;
+    bottom: -14px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 14px;
+    padding: 12px 18px;
+    box-shadow: 0 8px 24px rgba(27, 23, 20, 0.08);
+}
+
+.hero-float-card span {
+    display: block;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+}
+
+.hero-float-card strong {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    color: var(--brand-ink);
+}
+
+/* Info Strip */
+.info-strip {
+    background-color: #fdfbf8;
+    border-top: 1px solid var(--border-line);
+    border-bottom: 1px solid var(--border-line);
+    padding: 28px;
+}
+
+.info-strip-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 26px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.info-icon-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--brand-sand);
+    color: var(--brand-clay);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.92rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+    margin-bottom: 2px;
+}
+
+.info-value {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--brand-ink);
+}
+
+/* Featured 3 Dishes */
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.featured-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-card img {
+    width: 100%;
+    height: 215px;
+    object-fit: cover;
+}
+
+.featured-card-body {
+    padding: 20px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.featured-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.featured-title-row h3 {
+    font-size: 1.2rem;
+}
+
+.featured-price {
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    color: var(--brand-clay);
+    font-weight: 500;
+}
+
+.reserve-banner {
+    margin-top: 56px;
+    background-color: var(--brand-sand);
+    border: 1px solid #dfd3c3;
+    border-radius: 24px;
+    padding: 36px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* ---------- Menu Page (Zafran Theme + 2-Col Dish Cards + Live Cart) ---------- */
+.page-intro {
+    max-width: 680px;
+    margin-bottom: 28px;
+}
+
+.page-intro h1 {
+    font-size: clamp(2.1rem, 3.8vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.page-intro p {
+    color: var(--muted-ink);
+    font-size: 1rem;
+}
+
+.category-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-line);
+}
+
+.tab-btn {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    padding: 9px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #574f48;
+    min-height: 42px;
+    transition: all 0.15s ease;
+}
+
+.tab-btn:hover {
+    background-color: var(--brand-sand);
+    color: var(--brand-ink);
+}
+
+.tab-btn.active {
+    background-color: var(--brand-ink);
+    color: #ffffff;
+    border-color: var(--brand-ink);
+}
+
+.menu-page-layout {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.menu-cards-area {
+    flex: 1.75 1 560px;
+}
+
+.menu-section-heading {
+    font-size: 1.55rem;
+    margin-bottom: 16px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    gap: 18px;
+}
+
+.menu-item-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 164px;
+    transition: border-color 0.15s ease;
+}
+
+.menu-item-card:hover {
+    border-color: #c9bcab;
+}
+
+.menu-item-card h3 {
+    font-size: 1.12rem;
+    margin-bottom: 4px;
+}
+
+.menu-item-price {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--brand-clay);
+    margin-bottom: 8px;
+}
+
+.menu-item-desc {
+    color: var(--muted-ink);
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+}
+
+.card-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cat-badge {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    background-color: var(--brand-sand-soft);
+    color: #5f564e;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.plus-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #d5cabd;
+    background-color: var(--card-bg);
+    color: var(--brand-ink);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.plus-btn:hover {
+    background-color: var(--brand-clay);
+    color: #ffffff;
+    border-color: var(--brand-clay);
+}
+
+.plus-btn.in-cart {
+    background-color: var(--brand-ink);
+    color: #ffffff;
+    border-color: var(--brand-ink);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Sticky Right Cart Sidebar */
+.cart-sidebar {
+    flex: 1 1 330px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 22px;
+    padding: 24px;
+    position: sticky;
+    top: 92px;
+}
+
+/* Zafran Segmented Pill Toggle (Dine in / Pickup) */
+.segmented-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    border: none;
+    margin-bottom: 18px;
+}
+
+.segmented-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--border-line);
+    background-color: var(--card-bg);
+    color: var(--brand-ink);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: all 0.15s ease;
+}
+
+.segmented-toggle input[type="radio"] {
+    position: absolute;
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.segmented-toggle label:has(input:checked) {
+    background-color: var(--brand-ink);
+    color: #ffffff;
+    border-color: var(--brand-ink);
+}
+
+.segmented-toggle label:has(input:focus-visible) {
+    outline: 3px solid var(--brand-clay);
+    outline-offset: 2px;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border-line);
+    gap: 10px;
+}
+
+.cart-stepper {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #d5cabd;
+    border-radius: 999px;
+    padding: 3px 10px;
+    background-color: var(--brand-cream);
+}
+
+.step-btn {
+    background: none;
+    border: none;
+    color: var(--brand-ink);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-width: 24px;
+    min-height: 28px;
+}
+
+.cart-totals {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-line);
+}
+
+.tot-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 0;
+    font-size: 0.92rem;
+    color: var(--muted-ink);
+}
+
+.tot-line.grand {
+    color: var(--brand-ink);
+    font-weight: 600;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--brand-ink);
+}
+
+.tot-line.grand .grand-val {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    color: var(--brand-ink);
+}
+
+/* ---------- Order / Checkout Page & Responsive Tables ---------- */
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.white-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 22px;
+    padding: 28px;
+}
+
+.sand-form-card {
+    background-color: var(--brand-sand-soft);
+    border: 1px solid var(--border-line);
+    border-radius: 22px;
+    padding: 28px;
+}
+
+.table-wrapper {
+    overflow: auto;
+    max-inline-size: 100%;
+    max-block-size: min(520px, 80vh);
+    container-type: inline-size;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+caption {
+    text-align: left;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+    margin-bottom: 10px;
+}
+
+thead {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+    background-color: var(--brand-sand-soft);
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-line);
+    font-size: 0.92rem;
+}
+
+thead th {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+    font-weight: 500;
+}
+
+tbody th {
+    position: sticky;
+    inset-inline-start: 0;
+    background-color: var(--card-bg);
+    font-weight: 500;
+    color: var(--brand-ink);
+}
+
+@container (width < 500px) {
+    table, thead, tbody, tr, th, td { display: block; }
+    thead { display: none; }
+    tr {
+        margin-block-end: 1rem;
+        border: 1px solid var(--border-line);
+        border-radius: 12px;
+        padding: 10px;
+    }
+    tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background-color: var(--brand-sand-soft);
+    }
+    td:nth-child(2)::before { content: var(--label-2, "Detail") ": "; font-weight: 600; }
+    td:nth-child(3)::before { content: var(--label-3, "Amount") ": "; font-weight: 600; }
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-block-end: 16px;
+}
+
+.field-group label,
+.form-section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+}
+
+.field-group input,
+.field-group textarea {
+    font: inherit;
+    font-size: max(1rem, 1em);
+    padding: 12px 15px;
+    min-height: 48px;
+    border: 1px solid #cfc6ba;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    color: var(--brand-ink);
+    width: 100%;
+}
+
+.field-group input:user-invalid,
+.field-group textarea:user-invalid,
+.field-group input[aria-invalid="true"] {
+    border: 2px solid #b91c1c;
+    background-color: #fffafa;
+}
+
+.field-error {
+    color: #b91c1c;
+    font-size: 0.82rem;
+    min-height: 1.1em;
+}
+
+/* ---------- Zafran Receipt Card ---------- */
+.sage-banner {
+    max-width: 640px;
+    margin: 0 auto 22px;
+    background-color: #edf1ee;
+    border: 1px solid #c6d3ca;
+    border-radius: 16px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--brand-ink);
+    font-size: 0.94rem;
+}
+
+.sage-check {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--brand-sage);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.receipt-card {
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 24px;
+    padding: 40px 38px;
+}
+
+.receipt-guest-box {
+    background-color: var(--brand-sand-soft);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 20px 0 24px;
+}
+
+.notes-dashed-box {
+    margin-top: 22px;
+    border: 1px dashed #cfc5b8;
+    border-radius: 14px;
+    padding: 14px 18px;
+}
+
+/* ---------- Visit Page ---------- */
+.visit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    align-items: start;
+    margin-bottom: 48px;
+}
+
+.visit-photo {
+    width: 100%;
+    height: 410px;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+}
+
+.hours-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 18px;
+    padding: 20px 24px;
+    margin-top: 22px;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    font-size: 0.92rem;
+    border-bottom: 1px dashed var(--border-line);
+}
+
+.hours-row:last-child {
+    border-bottom: none;
+}
+
+/* ---------- Zafran Footer ---------- */
+.site-footer {
+    border-top: 1px solid var(--border-line);
+    background-color: #f6f0e7;
+    padding: 44px 28px;
+    margin-top: 56px;
+}
+
+.footer-grid {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 32px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+    margin-bottom: 10px;
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    color: #4f4841;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 860px) {
+    .hero-grid,
+    .checkout-grid,
+    .visit-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-photo { height: 320px; }
+}
+
+@media print {
+    .site-header, .site-footer, .no-print {
+        display: none !important;
+    }
+    body { background: #ffffff; }
+}
