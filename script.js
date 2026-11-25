@@ -16,6 +16,20 @@ var defaultMenu = [
     { id: 10, name: "Soft Drink",          category: "Sweet & cold",     description: "Chilled bottle, regular or diet.", price: 100 }
 ];
 
+// Dish pictures (saved in the images/ folder), matched by dish id
+var dishImages = {
+    1: "images/chicken-biryani.jpg",
+    2: "images/beef-karahi.jpg",
+    3: "images/chicken-tikka.jpg",
+    4: "images/seekh-kebab.jpg",
+    5: "images/mutton-pulao.jpg",
+    6: "images/daal-makhani.jpg",
+    7: "images/garlic-naan.jpg",
+    8: "images/fresh-salad.jpg",
+    9: "images/kheer.jpg",
+    10: "images/soft-drink.jpg"
+};
+
 var menuList = defaultMenu.slice();
 var activeFilter = "all";
 
@@ -128,7 +142,10 @@ function renderMenuCards() {
             var btnLabel = qty > 0 ? qty : "+";
             var btnClass = qty > 0 ? "plus-btn in-cart" : "plus-btn";
 
+            var imgSrc = dishImages[dish.id] || "images/chicken-biryani.jpg";
+
             card.innerHTML =
+                "<img class='menu-item-img' src='" + imgSrc + "' alt='" + dish.name + "' width='600' height='420' loading='lazy'>" +
                 "<div>" +
                     "<h3>" + dish.name + "</h3>" +
                     "<div class='menu-item-price'>Rs " + dish.price + "</div>" +

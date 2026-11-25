@@ -411,7 +411,7 @@ string getFormField(const string& body, string key) {
 }
 
 string readFileText(string filename) {
-    ifstream f(filename);
+    ifstream f(filename, ios::binary);
     if (!f) return "";
     stringstream s; s << f.rdbuf();
     return s.str();
@@ -522,6 +522,10 @@ void startWebServer(int port = 8080) {
                                 webOrder.getSubtotal(), webOrder.getTax(), webOrder.getTotal(), notes, dt);
             }
             body = "{\"status\":\"ok\",\"receipt_no\":\"" + rno + "\",\"created_at\":\"" + dt + "\"}";
+        } else if (pathOnly.rfind("/images/", 0) == 0 && pathOnly.find("..") == string::npos) {
+            // Serve dish pictures for the menu cards (e.g. /images/kheer.jpg)
+            contentType = "image/jpeg";
+            body = readFileText(pathOnly.substr(1));
         } else if (pathOnly == "/style.css") {
             contentType = "text/css";
             body = readFileText("style.css");
