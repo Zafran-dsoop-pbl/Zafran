@@ -2,7 +2,7 @@
 ### Digital Restaurant Management System
 **DSOOP Project | MTE-227 | MUET**
 
-
+```text
 ⠀⠀⣠⣾⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣶⣆⠀⠀⠀⠀
 ⠀⠀⢿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣦⠀⠀
@@ -15,7 +15,7 @@
 ⢸⣿⣿⣿⣿⣇⣿⣿⣿⣿⣿⡇⠀⠀⠈⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠛⠿⠿⠿⠿⠿⠿⠿⠿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
+```
 
 > "Where traditional flavours meet modern technology."
 
@@ -86,7 +86,7 @@ https://github.com/Zafran-dsoop-pbl/Zafran
 
 Developed collaboratively by Group 3 as part of the MTE-227 university coursework.
 
-
+```text
 ========================================================
                    Z A F R A N
 ========================================================
@@ -101,3 +101,4 @@ Developed collaboratively by Group 3 as part of the MTE-227 university coursewor
 ========================================================
                    END OF README
 ========================================================
+```
